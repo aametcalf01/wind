@@ -1,0 +1,174 @@
+aametcal@bluemoon-user1 CS295_code]$ bash fileChecker.sh
+found
+1
+found
+2
+found
+3
+found
+4
+not foune 1906
+not foune 1907
+not foune 1908
+not foune 1909
+not foune 1910
+not foune 1911
+not foune 1912
+not foune 1913
+not foune 1914
+not foune 1915
+not foune 1916
+not foune 1917
+not foune 1918
+not foune 1919
+not foune 1920
+not foune 1921
+not foune 1922
+not foune 1923
+not foune 1924
+not foune 1925
+not foune 1926
+not foune 1927
+not foune 1928
+not foune 1929
+not foune 1930
+not foune 1931
+not foune 1932
+not foune 1933
+not foune 1934
+not foune 1935
+not foune 1936
+not foune 1937
+not foune 1938
+not foune 1939
+not foune 1940
+not foune 1941
+not foune 1942
+not foune 1943
+not foune 1944
+not foune 1945
+not foune 1946
+not foune 1947
+not foune 1948
+not foune 1949
+not foune 1950
+not foune 1951
+found
+5
+found
+6
+found
+7
+found
+8
+found
+9
+found
+10
+found
+11
+found
+12
+found
+13
+found
+14
+found
+15
+found
+16
+not foune 1964
+not foune 1965
+not foune 1966
+not foune 1967
+not foune 1968
+not foune 1969
+not foune 1970
+not foune 1971
+not foune 1972
+found
+17
+found
+18
+found
+19
+found
+20
+found
+21
+found
+22
+found
+23
+found
+24
+found
+25
+found
+26
+found
+27
+found
+28
+found
+29
+found
+30
+found
+31
+found
+32
+found
+33
+found
+34
+found
+35
+found
+36
+found
+37
+found
+38
+found
+39
+found
+40
+found
+41
+found
+42
+found
+43
+found
+44
+found
+45
+found
+46
+found
+47
+found
+48
+found
+49
+found
+50
+found
+51
+found
+52
+found
+53
+found
+54
+found
+55
+found
+56
+found
+57
+found
+58
+found
+59

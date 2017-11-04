@@ -4,9 +4,13 @@ import fnmatch
 import pandas as pd
 import numpy as numpy
 
+#This code takes as system arguments: year, file destination and file name, lower lattitude, upper lattitude, western longitude, easter longitude
+
+#Returns a .csv file with all of the specified columns for the specified region for one year
+
 def getLatLonElev():
         dic ={}
-        f = open("/users/a/a/aametcal/CS295/readmeDocs/isd-history.csv")
+        f = open("/users/a/a/aametcal/wind/readmeDocs/isd-history.csv")
         counter = 0;
         for line in f:
                 lst = line.split(',')
@@ -35,7 +39,7 @@ dic = getLatLonElev()
 #System argument number 1 
 year = sys.argv[1]
 
-src = '/users/a/a/aametcal/CS295/rawData/'+year
+src = '/users/a/a/aametcal/wind/rawData/'+year
 
 #System argument number 2 file destination
 dest = sys.argv[2]
@@ -57,7 +61,7 @@ for root, dirs, files in os.walk(src,topdown=True):
                         temp = dic[ref]
                         if (lats[0] < float(temp[0]) < lats[1]) and (lons[0] < float(temp[1]) < lons[1]) and not (temp[3][:4] == year or temp[4][:4] == year) :
                                 print(test)
-                                dat = pd.read_csv('/users/a/a/aametcal/CS295/rawData/'+year+'/'+test,delim_whitespace=True)
+                                dat = pd.read_csv('/users/a/a/aametcal/wind/rawData/'+year+'/'+test,delim_whitespace=True)
                                 nDat = dat[cols]
                                 nDat.insert(loc=0,column='Lat', value=float(temp[0]))
                                 nDat.insert(loc=1,column='Lon', value=float(temp[1]))

@@ -3,9 +3,11 @@ import sys
 import pandas as pd
 import numpy as numpy
 
+#statByYear collects all of the data for a specific station and puts it, chronologically, in one file.  Input structure is python statByYear.py USAF#-WBAN# saveFileName
+
 def getLatLonElev():
         dic ={}
-        f = open("/users/a/a/aametcal/CS295/readmeDocs/isd-history.csv")
+        f = open("/users/a/a/aametcal/wind/readmeDocs/isd-history.csv")
         counter = 0;
         for line in f:
                 lst = line.split(',')
@@ -13,7 +15,7 @@ def getLatLonElev():
                         lst[i] = lst[i].strip().strip('"')
                 code = lst[0]+"-"+lst[1] #create the USAF#-WBAN# code
                 if counter !=0:
-                        dic[code] =(lst[6],lst[7],lst[8],lst[9],lst[10])	
+                        dic[code] =(lst[6],lst[7],lst[8],lst[9],lst[10])    
                 counter+=1
         f.close()
         flag = 0
@@ -31,7 +33,10 @@ def getLatLonElev():
 
 dic = getLatLonElev()
 
+#system input #1 station number USAF#-WBAN#
 stat = sys.argv[1]
+
+#system input #2 destination file path (include file name)
 dest = sys.argv[2]
 y1 = 1902
 y2 = 2015
@@ -42,8 +47,10 @@ if stat in dic.keys() :
     data = pd.DataFrame(columns=['Lat','Lon','Ele']+cols)
 
     for y in ys :
-        if os.path.exists('/users/a/a/aametcal/CS295/rawData/'+str(y))
-            dat = pd.read_csv('/users/a/a/aametcal/CS295/rawData/'+str(y)+'/'+stat+'-'+str(y)+'.txt',delim_whitespace=True)
+        if os.path.exists('/users/a/a/aametcal/wind/rawData/'+str(y)+'/'+stat+'-'+str(y)+'.txt'):
+            print(os.path.exists('/users/a/a/aametcal/wind/rawData/'+str(y)))
+            print(str(y))
+            dat = pd.read_csv('/users/a/a/aametcal/wind/rawData/'+str(y)+'/'+stat+'-'+str(y)+'.txt',delim_whitespace=True)
             print(str(y))
             nDat = dat[cols]
             temp = dic[stat]

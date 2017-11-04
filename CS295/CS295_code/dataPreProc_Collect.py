@@ -3,9 +3,12 @@ import sys
 import pandas as pd
 import numpy as numpy
 
+#This code takes as system arguments: file destination path(don't include the filename), lower lattitude, upper lattitude, western longitude, easter longitude
+
+#Returns a .csv file with all of the specified columns for the specified region for every year in the database where we have full coverage
 def getLatLonElev():
         dic ={}
-        f = open("/users/a/a/aametcal/CS295/readmeDocs/isd-history.csv")
+        f = open("/users/a/a/aametcal/wind/readmeDocs/isd-history.csv")
         counter = 0;
         for line in f:
                 lst = line.split(',')
@@ -35,8 +38,12 @@ y1 = 1902
 y2 = 2015
 ys = range(y1,y2+1)
 
-src = '/users/a/a/aametcal/CS295/rawData/'+year
+#src = '/users/a/a/aametcal/wind/rawData/'+year
+
+#system argument #1 = file destination path
 dest = sys.argv[1]
+
+#System argumens 2-5 lats and lons
 lats = (float(sys.argv[2]),float(sys.argv[3]))
 lons = (float(sys.argv[4]),float(sys.argv[5]))
 cols = ['YR--MODAHRMN','DIR','SPD','GUS','TEMP','ALT'] # write in list of column strings
@@ -45,7 +52,7 @@ if not os.path.exists(dest):
         os.makedirs(dest)
 
 for y in ys :
-        src = '/users/a/a/aametcal/CS295/rawData/'+str(y)
+        src = '/users/a/a/aametcal/wind/rawData/'+str(y)
         data = pd.DataFrame(columns=['Lat','Lon','Ele']+cols)
         for root, dirs, files in os.walk(src,topdown=True):
                 for file in files:
@@ -55,9 +62,9 @@ for y in ys :
         ##                print(ref)
                         if ref in dic.keys() :
                                 temp = dic[ref]
-                                if (lats[0] < float(temp[0]) < lats[1]) and (lons[0] < float(temp[1]) < lons[1]) and not (temp[3][:4] == year or temp[4][:4] == year) :
+                                if (lats[0] < float(temp[0]) < lats[1]) and (lons[0] < float(temp[1]) < lons[1]) and not (temp[3][:4] == str(y) or temp[4][:4] ==str( y)) :
                                         print(test)
-                                        dat = pd.read_csv('/users/a/a/aametcal/CS295/rawData/'+year+'/'+test,delim_whitespace=True)
+                                        dat = pd.read_csv('/users/a/a/aametcal/wind/rawData/'+str(y)+'/'+test,delim_whitespace=True)
                                         nDat = dat[cols]
                                         nDat.insert(loc=0,column='Lat', value=float(temp[0]))
                                         nDat.insert(loc=1,column='Lon', value=float(temp[1]))
