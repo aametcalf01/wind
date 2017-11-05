@@ -1,0 +1,58 @@
+Northeast(New York, Ontario, Quebec, Mass, NH, VT, Maine)
+    Lat1: 42.1
+    Lat2: 47
+    Lon1: -79.5
+    Lon2: -68.1
+
+South(Alabama, Georgia, Tennessee, North Carolina, South Carolina)
+    Lat1: 31.4
+    Lat2: 36.4
+    Lon1: -88.2
+    Lon2: -76.1
+
+Wrangels + Alaska Range + Denali yo!
+    Lat1: 59.9
+    Lat2: 64
+    Lon1: -154.7
+    Lon2: -141.1
+
+North Slope
+    Lat1: 68.4
+    Lat2: 71.5
+    Lon1: -164
+    Lon2: -144.7
+
+Upper Midwest (Ontario, North Dakota, Suth Dakaot, Minesota, Iowa, Wisconsin)
+    Lat1: 43
+    Lat2: 49
+    Lon1: -104
+    Lon2: -90
+
+Plains (Kansas, Nebraska, Iowa, Missouri, Illinois)
+    Lat1: 37.2
+    Lat2: 43
+    Lon1: -102
+    Lon2: -91
+
+Rockies (Utah, Wyoming, Colorado, Nebraska)
+    Lat1: 37
+    Lat2: 42
+    Lon1: -114
+    Lon2: -102
+
+Pacific Northwest
+    Lat1: 42
+    Lat2: 49
+    Lon1: -124.7
+    Lon2: -117
+
+Station                         Station Number
+Mount Washington                726130-14755
+Burlington (Airport)            726170-14742
+Anchorage Merril Field          702735-26409
+Telluride Regional AP           724627-03011
+Nassau AP                       780730-99999
+Honolulu AP                     911820-22521
+Fargo Hector AP                 727530-14914
+
+
