@@ -38,7 +38,7 @@ src = '/users/a/a/aametcal/wind/rawData/'+year
 dest = sys.argv[2]
 lats = (float(sys.argv[3]),float(sys.argv[4]))
 lons = (float(sys.argv[5]),float(sys.argv[6]))
-cols = ['YR--MODAHRMN','DIR','SPD','GUS','TEMP','SLP','ALT'] # write in list of column strings
+cols = ['YR--MODAHRMN','DIR','SPD','GUS','TEMP','ALT'] # write in list of column strings
 
 data = pd.DataFrame(columns=['Lat','Lon','Ele']+cols)
 for root, dirs, files in os.walk(src,topdown=True):
