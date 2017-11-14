@@ -57,6 +57,7 @@ while (i < len(content)) :
         temp.append(content[i][(4-ofs):(10-ofs)])
         i+=1
     elif len(temp)>0 :
+        appBool = True
         eph = loc+[d[0:8]]
         
         for j in range(len(temp)) :
@@ -91,6 +92,7 @@ while (i < len(content)) :
             eph.append(nAng)
             eph.append(np.linalg.norm(avgWD))
         else :
+            appBool = False
             eph.append('***')
             eph.append('***')
 
@@ -109,7 +111,8 @@ while (i < len(content)) :
             else :
                 eph.append('***')
 
-        data.append(eph)
+        if appBool :
+            data.append(eph)
         
         
         loc = content[i][(1-ofs):(3-ofs)]
