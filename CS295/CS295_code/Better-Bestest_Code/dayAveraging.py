@@ -30,7 +30,7 @@ def timeAvg(ls) :
 src = sys.argv[1]
 dest = sys.argv[2]
 
-cols = ['Lat','Lon','Ele']+['YR--MODAHRMN','DIR','SPD','GUS','TEMP','ALT']
+##cols = ['Lat','Lon','Ele']+['YR--MODAHRMN','DIR','SPD','GUS','TEMP','SLP','ALT']
 
 with open(src) as f:
     contentI = f.readlines()
@@ -46,15 +46,15 @@ content = [contentI[x].split(',') for x in range(len(contentI))]
 ofs = 0
 lofs = 1
 
-loc = content[lofs][(1-ofs):(3-ofs)]
+loc = content[lofs][(1-ofs):(4-ofs)]
 ##print(content[0][(4-ofs)])
 d = content[lofs][(4-ofs)]
 temp = []
-temp.append(content[lofs][(4-ofs):(10-ofs)])
+temp.append(content[lofs][(4-ofs):(11-ofs)])
 i=lofs+1
 while (i < len(content)) :
-    if content[i][(1-ofs):(3-ofs)]==loc and content[i][(4-ofs)][0:8]==d[0:8]:
-        temp.append(content[i][(4-ofs):(10-ofs)])
+    if content[i][(1-ofs):(4-ofs)]==loc and content[i][(4-ofs)][0:8]==d[0:8]:
+        temp.append(content[i][(4-ofs):(11-ofs)])
         i+=1
     elif len(temp)>0 :
         appBool = True
@@ -68,7 +68,7 @@ while (i < len(content)) :
         evan = [[temp[x][0],temp[x][1],temp[x][2]] for x in range(len(temp))]
         dels = []
         for j in range(len(evan)) :
-            if '*' in evan[j][2] :
+            if '*' in evan[j][2] or ('*' in evan[j][1] and evan[j][2] != '0') :
                 dels.append(j)
         dels.reverse()
         for j in dels :
@@ -86,9 +86,16 @@ while (i < len(content)) :
 ##            print(str(avgWD[0])+','+str(avgWD[1]))
     ##        eph.append(avgWD) # no unpack
             # unpack vector
-            nAng = np.arctan(avgWD[0]/avgWD[1])
-            if avgWD[1] < 0 :
-                nAng += np.pi
+            nAng = 0
+            if avgWD[1] < 0.0000001 :
+                if avgWD[0] < 0 :
+                    nAng = 3*np.pi/2
+                else :
+                    nAng = np.pi/2
+            else :
+                nAng = np.arctan(avgWD[0]/avgWD[1])
+                if avgWD[1] < 0 :
+                    nAng += np.pi
             eph.append(nAng)
             eph.append(np.linalg.norm(avgWD))
         else :
@@ -115,10 +122,10 @@ while (i < len(content)) :
             data.append(eph)
         
         
-        loc = content[i][(1-ofs):(3-ofs)]
+        loc = content[i][(1-ofs):(4-ofs)]
         d = content[i][(4-ofs)]
         temp = []
-        temp.append(content[i][(4-ofs):(10-ofs)])
+        temp.append(content[i][(4-ofs):(11-ofs)])
         i+=1
     else :
         print('DaFuq?')

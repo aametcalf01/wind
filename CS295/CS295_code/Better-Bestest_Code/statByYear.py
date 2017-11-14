@@ -38,7 +38,7 @@ y2 = 2015
 ys = range(y1,y2+1)
 
 if stat in dic.keys() :
-    cols = ['YR--MODAHRMN','DIR','SPD','GUS','TEMP','SLP']
+    cols = ['YR--MODAHRMN','DIR','SPD','GUS','TEMP','SLP','ALT']
     data = pd.DataFrame(columns=['Lat','Lon','Ele']+cols)
 
     for y in ys :
